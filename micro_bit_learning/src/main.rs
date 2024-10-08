@@ -12,15 +12,8 @@ fn main() -> ! {
     if let Some(board) = Board::take() {
         let mut timer = Timer::new(board.TIMER0);
         let mut display = Display::new(board.display_pins);
-
-        #[allow(non_snake_case)]
-        let letter_I = [
-            [0, 1, 1, 1, 0],
-            [0, 0, 1, 0, 0],
-            [0, 0, 1, 0, 0],
-            [0, 0, 1, 0, 0],
-            [0, 1, 1, 1, 0],
-        ];
+        
+        
 
         let heart = [
             [0, 1, 0, 1, 0],
@@ -29,6 +22,16 @@ fn main() -> ! {
             [0, 1, 0, 1, 0],
             [0, 0, 1, 0, 0],
         ];
+        #[allow(non_snake_case)]
+        let letter_K = [
+            [0, 1, 0, 0, 1],
+            [0, 1, 0, 1, 0],
+            [0, 1, 1, 0, 0],
+            [0, 1, 0, 1, 0],
+            [0, 1, 0, 0, 1],
+        ];
+
+       
 
         #[allow(non_snake_case)]
         let letter_R = [
@@ -40,13 +43,15 @@ fn main() -> ! {
         ];
 
         #[allow(non_snake_case)]
-        let letter_u = [
-            [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0],
-            [0, 1, 0, 1, 0],
-            [0, 1, 0, 1, 0],
+        let letter_I = [
+            [0, 1, 1, 1, 0],
+            [0, 0, 1, 0, 0],
+            [0, 0, 1, 0, 0],
+            [0, 0, 1, 0, 0],
             [0, 1, 1, 1, 0],
         ];
+
+        
 
         #[allow(non_snake_case)]
         let letter_s = [
@@ -65,13 +70,43 @@ fn main() -> ! {
             [0, 0, 1, 0, 0],
             [0, 0, 1, 0, 0],
         ];
+
+        #[allow(non_snake_case)]
+        let letter_Y = [
+            [0, 1, 0, 1, 0],
+            [0, 0, 1, 0, 0],
+            [0, 0, 1, 0, 0],
+            [0, 0, 1, 0, 0],
+            [0, 0, 1, 0, 0],
+        ];
+
+        #[allow(non_snake_case)]
+        let letter_N = [
+            [1, 0, 0, 0, 1],
+            [1, 1, 0, 0, 1],
+            [1, 0, 1, 0, 1],
+            [1, 0, 0, 1, 1],
+            [1, 0, 0, 0, 1],
+        ];
+
+        #[allow(non_snake_case)]
+        let letter_A = [
+            [0, 1, 1, 1, 0],
+            [0, 1, 0, 1, 0],
+            [0, 1, 1, 1, 0],
+            [0, 1, 0, 1, 0],
+            [0, 1, 0, 1, 0],
+        ];
         loop {
             display.show(&mut timer, letter_I, 1000);
             display.show(&mut timer, heart, 1000);
+            display.show(&mut timer, letter_K, 1000);
             display.show(&mut timer, letter_R, 1000);
-            display.show(&mut timer, letter_u, 1000);
             display.show(&mut timer, letter_s, 1000);
             display.show(&mut timer, letter_t, 1000);
+            display.show(&mut timer, letter_Y, 1000);
+            display.show(&mut timer, letter_N, 1000);
+            display.show(&mut timer, letter_A, 1000);
             display.clear();
             timer.delay_ms(250_u32);
         }
